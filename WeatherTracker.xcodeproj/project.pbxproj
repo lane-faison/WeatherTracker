@@ -15,6 +15,7 @@
 		F64ED3571ECC20DB00B4C867 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F64ED3551ECC20DB00B4C867 /* LaunchScreen.storyboard */; };
 		F6527F1F1ECCCF8B008CA459 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6527F1E1ECCCF8B008CA459 /* Constants.swift */; };
 		F6527F211ECCD242008CA459 /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6527F201ECCD242008CA459 /* CurrentWeather.swift */; };
+		F6527F231ECCF64E008CA459 /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6527F221ECCF64E008CA459 /* Forecast.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		F64ED3581ECC20DB00B4C867 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F6527F1E1ECCCF8B008CA459 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F6527F201ECCD242008CA459 /* CurrentWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
+		F6527F221ECCF64E008CA459 /* Forecast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 				F64ED3581ECC20DB00B4C867 /* Info.plist */,
 				F6527F1E1ECCCF8B008CA459 /* Constants.swift */,
 				F6527F201ECCD242008CA459 /* CurrentWeather.swift */,
+				F6527F221ECCF64E008CA459 /* Forecast.swift */,
 			);
 			path = WeatherTracker;
 			sourceTree = "<group>";
@@ -222,6 +225,7 @@
 				F64ED34D1ECC20DB00B4C867 /* AppDelegate.swift in Sources */,
 				F6527F211ECCD242008CA459 /* CurrentWeather.swift in Sources */,
 				F6527F1F1ECCCF8B008CA459 /* Constants.swift in Sources */,
+				F6527F231ECCF64E008CA459 /* Forecast.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

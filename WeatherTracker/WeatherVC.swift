@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -19,6 +20,8 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     
     var currentWeather: CurrentWeather!
+    var forecast: Forecast!
+    var forecasts = [Forecast]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,8 +30,11 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.dataSource = self
         
         currentWeather = CurrentWeather()
+//        forecast = Forecast()
         currentWeather.downloadWeatherDetails {
-            self.updateMainUI()
+            self.downloadForecastData {
+                self.updateMainUI()
+            }
         }
         
     }
@@ -49,14 +55,25 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         currentTempLabel.text = "\(currentWeather.currentTemp)"
         locationLabel.text = currentWeather.cityName
         currentWeatherImage.image = UIImage(named: currentWeather.weatherType)
-        print("#####")
-        print(currentWeather.weatherType)
-        print("#####")
-        print("$$$$$\(currentWeather.date)")
-        print("$$$$$\(currentWeather.weatherType)")
-        print("$$$$$\(currentWeather.currentTemp)")
-        print("$$$$$\(currentWeather.cityName)")
-        
+    }
+    
+    func downloadForecastData(completed: @escaping DownloadComplete) {
+        let forecastURL = URL(string: FORECAST_URL)!
+        Alamofire.request(forecastURL).responseJSON { response in
+            let result = response.result
+            
+            if let dict = result.value as? Dictionary<String, AnyObject> {
+                
+                if let list = dict["list"] as? [Dictionary<String, AnyObject>] {
+                    for obj in list {
+                        let forecast = Forecast(weatherDict: obj)
+                        self.forecasts.append(forecast)
+                        print(obj)
+                    }
+                }
+            }
+            completed()
+        }
     }
 
 }
