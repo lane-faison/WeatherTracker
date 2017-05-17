@@ -13,6 +13,8 @@
 		F64ED3521ECC20DB00B4C867 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F64ED3501ECC20DB00B4C867 /* Main.storyboard */; };
 		F64ED3541ECC20DB00B4C867 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F64ED3531ECC20DB00B4C867 /* Assets.xcassets */; };
 		F64ED3571ECC20DB00B4C867 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F64ED3551ECC20DB00B4C867 /* LaunchScreen.storyboard */; };
+		F6527F1F1ECCCF8B008CA459 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6527F1E1ECCCF8B008CA459 /* Constants.swift */; };
+		F6527F211ECCD242008CA459 /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6527F201ECCD242008CA459 /* CurrentWeather.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		F64ED3531ECC20DB00B4C867 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F64ED3561ECC20DB00B4C867 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F64ED3581ECC20DB00B4C867 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F6527F1E1ECCCF8B008CA459 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		F6527F201ECCD242008CA459 /* CurrentWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +88,8 @@
 				F64ED3531ECC20DB00B4C867 /* Assets.xcassets */,
 				F64ED3551ECC20DB00B4C867 /* LaunchScreen.storyboard */,
 				F64ED3581ECC20DB00B4C867 /* Info.plist */,
+				F6527F1E1ECCCF8B008CA459 /* Constants.swift */,
+				F6527F201ECCD242008CA459 /* CurrentWeather.swift */,
 			);
 			path = WeatherTracker;
 			sourceTree = "<group>";
@@ -214,6 +220,8 @@
 			files = (
 				F64ED34F1ECC20DB00B4C867 /* WeatherVC.swift in Sources */,
 				F64ED34D1ECC20DB00B4C867 /* AppDelegate.swift in Sources */,
+				F6527F211ECCD242008CA459 /* CurrentWeather.swift in Sources */,
+				F6527F1F1ECCCF8B008CA459 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
