@@ -62,6 +62,33 @@ class CurrentWeather {
             print("######")
             print(response)
             
+            if let dict = response.value as? Dictionary<String, AnyObject> {
+                if let name = dict["name"] as? String {
+                    self._cityName = name.capitalized //Just in case the API sends back an uncapitalized city name
+                    print(self._cityName)
+                }
+                
+                if let weather = dict["weather"] as? [Dictionary<String, AnyObject>] {
+                    
+                    if let main = weather[0]["main"] as? String {
+                        self._weatherType = main.capitalized
+                        print(self._weatherType)
+                    }
+                }
+                
+                if let main = dict["main"] as? Dictionary<String, AnyObject> {
+                    
+                    if let currentTemperature = main["temp"] as? Double {
+                        
+                        let kelvinToFarenheitPreDivision = (currentTemperature * (9/5) - 459.67)
+                        
+                        let kelvinToFarenheit = Double(round(10*kelvinToFarenheitPreDivision/10))
+                        self._currentTemp = kelvinToFarenheit
+                        print(self._currentTemp)
+                        
+                    }
+                }
+            }
         }
         completed()
     }
