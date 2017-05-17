@@ -18,4 +18,5 @@ typealias DownloadComplete = () -> ()
 
 let CURRENT_WEATHER_URL = "\(BASE_URL)\(LATITUDE)40.014984\(LONGITUDE)-105.270546\(APP_ID)\(API_KEY)"
 
+let FORECAST_URL = "http://api.openweathermap.org/data/2.5/forecast/daily?lat=35&lon=139&cnt=10&mode=json&appid=7b0b336449c47612c55a5c07fef43dcd"
 
