@@ -50,19 +50,17 @@ class CurrentWeather {
         return _currentTemp
     }
     
-    func downloadWeatherDetails(completed: DownloadComplete) {
+    func downloadWeatherDetails(completed: @escaping DownloadComplete) {
         // Tell Alamofire where to download from
+        
         let currentWeatherURL = URL(string: CURRENT_WEATHER_URL)!
+        
         Alamofire.request(currentWeatherURL).responseJSON { response in
             let result = response.result
-            print("######")
-            print(currentWeatherURL)
-            print("######")
-            print(result)
-            print("######")
-            print(response)
+
+            print(result.value!)
             
-            if let dict = response.value as? Dictionary<String, AnyObject> {
+            if let dict = result.value as? Dictionary<String, AnyObject> {
                 if let name = dict["name"] as? String {
                     self._cityName = name.capitalized //Just in case the API sends back an uncapitalized city name
                     print(self._cityName)
@@ -89,12 +87,7 @@ class CurrentWeather {
                     }
                 }
             }
+            completed()
         }
-        completed()
     }
-    
-    
-    
-    
-    
 }
