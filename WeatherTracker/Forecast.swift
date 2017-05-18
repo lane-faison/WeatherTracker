@@ -44,30 +44,21 @@ class Forecast {
     }
     
     init(weatherDict: Dictionary<String, AnyObject>) {
-        
         if let temp = weatherDict["temp"] as? Dictionary<String, AnyObject> {
-            
             if let min = temp["min"] as? Double {
-                
                 let kelvinToFarenheitPreDivision = (min * (9/5) - 459.67)
-                
                 let kelvinToFarenheit = Double(round(10*kelvinToFarenheitPreDivision/10))
                 self._lowTemp = "\(kelvinToFarenheit)"
-                
             }
             
             if let max = temp["max"] as? Double {
-                
                 let kelvinToFarenheitPreDivision = (max * (9/5) - 459.67)
-                
                 let kelvinToFarenheit = Double(round(10*kelvinToFarenheitPreDivision/10))
                 self._highTemp = "\(kelvinToFarenheit)"
-                
             }
         }
         
         if let weather = weatherDict["weather"] as? [Dictionary<String, AnyObject>] {
-            
             if let main = weather[0]["main"] as? String {
                 self._weatherType = main
             }
@@ -81,9 +72,7 @@ class Forecast {
             dateFormatter.timeStyle = .none
             self._date = unixConvertedDate.dayOfTheWeek()
         }
-        
     }
-    
 }
 
 extension Date {
@@ -93,8 +82,3 @@ extension Date {
         return dateFormatter.string(from: self)
     }
 }
-
-
-
-
-
