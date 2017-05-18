@@ -16,6 +16,7 @@
 		F6527F1F1ECCCF8B008CA459 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6527F1E1ECCCF8B008CA459 /* Constants.swift */; };
 		F6527F211ECCD242008CA459 /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6527F201ECCD242008CA459 /* CurrentWeather.swift */; };
 		F6527F231ECCF64E008CA459 /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6527F221ECCF64E008CA459 /* Forecast.swift */; };
+		F6527F251ECD62F1008CA459 /* WeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6527F241ECD62F1008CA459 /* WeatherCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		F6527F1E1ECCCF8B008CA459 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F6527F201ECCD242008CA459 /* CurrentWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
 		F6527F221ECCF64E008CA459 /* Forecast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
+		F6527F241ECD62F1008CA459 /* WeatherCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 				F6527F1E1ECCCF8B008CA459 /* Constants.swift */,
 				F6527F201ECCD242008CA459 /* CurrentWeather.swift */,
 				F6527F221ECCF64E008CA459 /* Forecast.swift */,
+				F6527F241ECD62F1008CA459 /* WeatherCell.swift */,
 			);
 			path = WeatherTracker;
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 			files = (
 				F64ED34F1ECC20DB00B4C867 /* WeatherVC.swift in Sources */,
 				F64ED34D1ECC20DB00B4C867 /* AppDelegate.swift in Sources */,
+				F6527F251ECD62F1008CA459 /* WeatherCell.swift in Sources */,
 				F6527F211ECCD242008CA459 /* CurrentWeather.swift in Sources */,
 				F6527F1F1ECCCF8B008CA459 /* Constants.swift in Sources */,
 				F6527F231ECCF64E008CA459 /* Forecast.swift in Sources */,
