@@ -22,47 +22,70 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
     let locationManager = CLLocationManager()
     var currentLocation: CLLocation!
     
-    var currentWeather: CurrentWeather!
+    var currentWeather = CurrentWeather()
     var forecast: Forecast!
     var forecasts = [Forecast]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+//        currentWeather = CurrentWeather()
+
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        
+        if CLLocationManager.authorizationStatus() != .authorizedWhenInUse {
+            locationManager.requestWhenInUseAuthorization()
+        } else {
+            getLocationAndWeather()
+        }
+        
         locationManager.requestWhenInUseAuthorization()
         locationManager.startMonitoringSignificantLocationChanges()
         
         tableView.delegate = self
         tableView.dataSource = self
         
-        currentWeather = CurrentWeather()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        locationAuthStatus()
-    }
-    
-    func locationAuthStatus() {
-        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
-            currentLocation = locationManager.location // Gets users current location
-            Location.sharedInstance.latitude = currentLocation.coordinate.latitude
-            Location.sharedInstance.longitude = currentLocation.coordinate.longitude
-            currentWeather.downloadWeatherDetails {
-                self.downloadForecastData {
-                    self.updateMainUI()
-                }
+    func getLocationAndWeather() {
+        currentLocation = locationManager.location // Gets users current location
+        Location.sharedInstance.latitude = currentLocation.coordinate.latitude
+        Location.sharedInstance.longitude = currentLocation.coordinate.longitude
+        currentWeather.downloadWeatherDetails {
+            self.downloadForecastData {
+                self.updateMainUI()
             }
-        } else {
-            locationManager.requestWhenInUseAuthorization()
-            if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
-                print("$$$$$$$$$$$$$$")
-                locationAuthStatus()
-            }
+            print("$$$$$$$$$$$$$%%%%")
         }
     }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        locationManager.startMonitoringSignificantLocationChanges()
+        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+            getLocationAndWeather()
+        }
+    }
+    
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
+//        locationAuthStatus()
+//    }
+    
+//    func locationAuthStatus() {
+//        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+//            currentLocation = locationManager.location // Gets users current location
+//            Location.sharedInstance.latitude = currentLocation.coordinate.latitude
+//            Location.sharedInstance.longitude = currentLocation.coordinate.longitude
+//            currentWeather.downloadWeatherDetails {
+//                self.downloadForecastData {
+//                    self.updateMainUI()
+//                }
+//            }
+//        } else {
+//            locationManager.requestWhenInUseAuthorization()
+//            locationAuthStatus()
+//        }
+//    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
