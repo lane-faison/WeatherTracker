@@ -58,7 +58,6 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
         } else {
             locationManager.requestWhenInUseAuthorization()
             if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
-                print("$$$$$$$$$$$$$$")
                 locationAuthStatus()
             }
         }
