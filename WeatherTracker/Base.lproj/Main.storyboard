@@ -33,7 +33,7 @@
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="70.5 °" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="32" translatesAutoresizingMaskIntoConstraints="NO" id="O5F-c1-nOe">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="70.5°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="32" translatesAutoresizingMaskIntoConstraints="NO" id="O5F-c1-nOe">
                                                 <rect key="frame" x="0.0" y="52.5" width="187" height="155"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="54"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -82,7 +82,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VV9-Na-ASM" id="BhX-I0-qS0">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="qwq-50-wLe">

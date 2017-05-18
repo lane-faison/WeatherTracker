@@ -8,11 +8,11 @@
 
 import Foundation
 
-let BASE_URL = "http://api.openweathermap.org/data/2.5/weather?"
-let LATITUDE = "lat="
-let LONGITUDE = "&lon="
-let APP_ID = "&appid="
-let API_KEY = "7b0b336449c47612c55a5c07fef43dcd"
+//let BASE_URL = "http://api.openweathermap.org/data/2.5/weather?"
+//let LATITUDE = "lat="
+//let LONGITUDE = "&lon="
+//let APP_ID = "&appid="
+//let API_KEY = "7b0b336449c47612c55a5c07fef43dcd"
 
 typealias DownloadComplete = () -> ()
 

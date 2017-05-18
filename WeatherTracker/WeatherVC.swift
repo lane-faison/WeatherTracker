@@ -28,7 +28,6 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        currentWeather = CurrentWeather()
 
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -44,7 +43,6 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
         
         tableView.delegate = self
         tableView.dataSource = self
-        
     }
     
     func getLocationAndWeather() {
@@ -55,7 +53,6 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
             self.downloadForecastData {
                 self.updateMainUI()
             }
-            print("$$$$$$$$$$$$$%%%%")
         }
     }
     
@@ -66,32 +63,12 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
         }
     }
     
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//        locationAuthStatus()
-//    }
-    
-//    func locationAuthStatus() {
-//        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
-//            currentLocation = locationManager.location // Gets users current location
-//            Location.sharedInstance.latitude = currentLocation.coordinate.latitude
-//            Location.sharedInstance.longitude = currentLocation.coordinate.longitude
-//            currentWeather.downloadWeatherDetails {
-//                self.downloadForecastData {
-//                    self.updateMainUI()
-//                }
-//            }
-//        } else {
-//            locationManager.requestWhenInUseAuthorization()
-//            locationAuthStatus()
-//        }
-//    }
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("##### \(forecasts.count)")
         return forecasts.count
     }
     
@@ -108,7 +85,7 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
     func updateMainUI() {
         dateLabel.text = currentWeather.date
         currentWeatherTypeLabel.text = currentWeather.weatherType
-        currentTempLabel.text = "\(currentWeather.currentTemp)"
+        currentTempLabel.text = "\(currentWeather.currentTemp)°F"
         locationLabel.text = currentWeather.cityName
         currentWeatherImage.image = UIImage(named: currentWeather.weatherType)
     }
@@ -118,6 +95,7 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
             let result = response.result
             if let dict = result.value as? Dictionary<String, AnyObject> {
                 if let list = dict["list"] as? [Dictionary<String, AnyObject>] {
+                    self.forecasts.removeAll() // This fixed the bug causing forecasts to be loaded twice
                     for obj in list {
                         let forecast = Forecast(weatherDict: obj)
                         self.forecasts.append(forecast)
