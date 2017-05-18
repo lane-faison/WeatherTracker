@@ -78,7 +78,7 @@
                                 <rect key="frame" x="0.0" y="300" width="375" height="367"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="weatherCell" rowHeight="80" id="VV9-Na-ASM">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="weatherCell" rowHeight="80" id="VV9-Na-ASM" customClass="WeatherCell" customModule="WeatherTracker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VV9-Na-ASM" id="BhX-I0-qS0">
@@ -88,7 +88,7 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="qwq-50-wLe">
                                                     <rect key="frame" x="8" y="15" width="347" height="50"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tt5-m1-C4P">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tt5-m1-C4P">
                                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="50" id="bEX-xd-QDx"/>
@@ -137,7 +137,7 @@
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.95231119791666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="backgroundColor" white="0.80438910590277779" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstItem="qwq-50-wLe" firstAttribute="leading" secondItem="BhX-I0-qS0" secondAttribute="leading" constant="8" id="7zK-py-4eP"/>
                                                 <constraint firstItem="qwq-50-wLe" firstAttribute="centerY" secondItem="BhX-I0-qS0" secondAttribute="centerY" id="qHs-4H-8by"/>
@@ -145,6 +145,13 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <connections>
+                                            <outlet property="dayLabel" destination="PWe-Io-WjR" id="4Vx-pV-6e9"/>
+                                            <outlet property="highTemp" destination="ZYO-h3-3WS" id="s1J-23-e02"/>
+                                            <outlet property="lowTemp" destination="9Kf-uD-wQB" id="onO-X2-vdc"/>
+                                            <outlet property="weatherIcon" destination="Tt5-m1-C4P" id="5ja-eb-5r0"/>
+                                            <outlet property="weatherType" destination="vzG-j5-HHt" id="d8m-hZ-kpn"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

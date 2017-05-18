@@ -77,9 +77,12 @@ class Forecast {
             let unixConvertedDate = Date(timeIntervalSince1970: date)
             let dateFormatter = DateFormatter()
             dateFormatter.dateStyle = .full
-            dateFormatter.dateFormat = "EEEEE"
+            dateFormatter.dateFormat = "EEEE"
             dateFormatter.timeStyle = .none
             self._date = unixConvertedDate.dayOfTheWeek()
+            print("#########")
+            print(self._date)
+            print("#########")
         }
         
     }
@@ -89,7 +92,7 @@ class Forecast {
 extension Date {
     func dayOfTheWeek() -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EEEEE"
+        dateFormatter.dateFormat = "EEEE"
         return dateFormatter.string(from: self)
     }
 }
