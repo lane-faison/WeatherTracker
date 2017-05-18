@@ -80,9 +80,6 @@ class Forecast {
             dateFormatter.dateFormat = "EEEE"
             dateFormatter.timeStyle = .none
             self._date = unixConvertedDate.dayOfTheWeek()
-            print("#########")
-            print(self._date)
-            print("#########")
         }
         
     }
