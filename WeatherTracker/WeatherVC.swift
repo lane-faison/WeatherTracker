@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import Alamofire
 import CoreLocation
+import Alamofire
 
 class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
 
@@ -20,7 +20,7 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
     @IBOutlet weak var tableView: UITableView!
     
     let locationManager = CLLocationManager()
-    var currentLocation = CLLocation!.self
+    var currentLocation: CLLocation!
     
     var currentWeather: CurrentWeather!
     var forecast: Forecast!
@@ -28,11 +28,9 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        print("$$$$$$$$ \(currentLocation)")
         
         locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest // The best possible acccuracy for location
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.startMonitoringSignificantLocationChanges()
         
@@ -40,23 +38,41 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
         tableView.dataSource = self
         
         currentWeather = CurrentWeather()
-//        forecast = Forecast()
-        currentWeather.downloadWeatherDetails {
-            self.downloadForecastData {
-                self.updateMainUI()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        locationAuthStatus()
+    }
+    
+    func locationAuthStatus() {
+        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+            currentLocation = locationManager.location // Gets users current location
+            Location.sharedInstance.latitude = currentLocation.coordinate.latitude
+            Location.sharedInstance.longitude = currentLocation.coordinate.longitude
+            currentWeather.downloadWeatherDetails {
+                self.downloadForecastData {
+                    self.updateMainUI()
+                }
+            }
+        } else {
+            locationManager.requestWhenInUseAuthorization()
+            if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+                print("$$$$$$$$$$$$$$")
+                locationAuthStatus()
             }
         }
-        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return forecasts.count
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       
         if let cell = tableView.dequeueReusableCell(withIdentifier: "weatherCell", for: indexPath) as? WeatherCell {
             let forecast = forecasts[indexPath.row]
             cell.configureCell(forecast: forecast)
@@ -75,17 +91,13 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
     }
     
     func downloadForecastData(completed: @escaping DownloadComplete) {
-        let forecastURL = URL(string: FORECAST_URL)!
-        Alamofire.request(forecastURL).responseJSON { response in
+        Alamofire.request(FORECAST_URL).responseJSON { response in
             let result = response.result
-            
             if let dict = result.value as? Dictionary<String, AnyObject> {
-                
                 if let list = dict["list"] as? [Dictionary<String, AnyObject>] {
                     for obj in list {
                         let forecast = Forecast(weatherDict: obj)
                         self.forecasts.append(forecast)
-                        print(obj)
                     }
                     self.forecasts.remove(at: 0) // This removes the first day so the cells start at tomorrow
                     self.tableView.reloadData() // Without this the cells won't update with new info
@@ -94,10 +106,4 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
             completed()
         }
     }
-    
-    func locationAuthStatus() {
-        //TODO: Pickup here on video!
-    }
-
 }
-
