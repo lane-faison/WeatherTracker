@@ -28,7 +28,13 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        dateLabel.isHidden = true
+        currentTempLabel.isHidden = true
+        locationLabel.isHidden = true
+        currentWeatherImage.isHidden = true
+        currentWeatherTypeLabel.isHidden = true
+        
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         
@@ -88,6 +94,12 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
         currentTempLabel.text = "\(currentWeather.currentTemp)°F"
         locationLabel.text = currentWeather.cityName
         currentWeatherImage.image = UIImage(named: currentWeather.weatherType)
+        
+        dateLabel.isHidden = false
+        currentTempLabel.isHidden = false
+        locationLabel.isHidden = false
+        currentWeatherImage.isHidden = false
+        currentWeatherTypeLabel.isHidden = false
     }
     
     func downloadForecastData(completed: @escaping DownloadComplete) {
