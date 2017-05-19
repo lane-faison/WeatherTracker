@@ -357,7 +357,6 @@
 			baseConfigurationReference = CD83C549DF017084BB42D195 /* Pods-WeatherTracker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = 34KC4VR7Y2;
 				INFOPLIST_FILE = WeatherTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -372,7 +371,6 @@
 			baseConfigurationReference = F347DF1B84E80BE0C279A648 /* Pods-WeatherTracker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = 34KC4VR7Y2;
 				INFOPLIST_FILE = WeatherTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
